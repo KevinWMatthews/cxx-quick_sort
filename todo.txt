@@ -1,2 +1,4 @@
 Figure out how to make a header-only library.
     If quick sort uses a template, it may well be just this.
+
+Check what iter_swap() does if we point to the same element!

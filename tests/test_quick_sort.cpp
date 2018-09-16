@@ -48,10 +48,19 @@ TEST_F(QuickSortTwoElementsTest, IdentialElementsAreAlreadySorted)
     ASSERT_EQ(expected, actual);
 }
 
-TEST_F(QuickSortTwoElementsTest, SortedElementsAreRemainSorted)
+TEST_F(QuickSortTwoElementsTest, SortedElementsRemainSorted)
 {
     data_type expected = {10, 11};
     data_type actual   = {10, 11};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
+
+TEST_F(QuickSortTwoElementsTest, UnsortedElementsGetSorted)
+{
+    data_type expected = {10, 11};
+    data_type actual   = {11, 10};
     QuickSort<data_type> quick_sort = {actual};
     quick_sort.sort();
     ASSERT_EQ(expected, actual);
