@@ -1,0 +1,2 @@
+Figure out how to make a header-only library.
+    If quick sort uses a template, it may well be just this.
