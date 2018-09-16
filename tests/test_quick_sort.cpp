@@ -32,3 +32,27 @@ TEST_F(QuickSortOneElementTest, SingleElementIsAlreadySorted)
     quick_sort.sort();
     ASSERT_EQ(expected, actual);
 }
+
+class QuickSortTwoElementsTest : public ::testing::Test
+{
+protected:
+    using data_type = array<int, 2>;
+};
+
+TEST_F(QuickSortTwoElementsTest, IdentialElementsAreAlreadySorted)
+{
+    data_type expected = {10, 10};
+    data_type actual   = {10, 10};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
+
+TEST_F(QuickSortTwoElementsTest, SortedElementsAreRemainSorted)
+{
+    data_type expected = {10, 11};
+    data_type actual   = {10, 11};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
