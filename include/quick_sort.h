@@ -50,11 +50,12 @@ private:
                     break;
                 }
             } while (*jkey > *pkey);
-            if (jkey < ikey)
+            if (jkey <= ikey)
             {
                 break;
             }
-        } while(0);
+            std::iter_swap(ikey, jkey);
+        } while(1);
         std::iter_swap(pkey, jkey);
 
         auto new_pkey = jkey;

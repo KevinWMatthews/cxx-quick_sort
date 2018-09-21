@@ -136,7 +136,7 @@ TEST_F(QuickSortThreeElementsTest, MiddleElementMovesToBeginning)
     ASSERT_EQ(expected, actual);
 }
 
-TEST_F(QuickSortThreeElementsTest, DISABLED_MiddleElementMovesToEnd)
+TEST_F(QuickSortThreeElementsTest, MiddleElementMovesToEnd)
 {
     data_type expected = {10, 10, 12};
     data_type actual   = {10, 12, 10};
