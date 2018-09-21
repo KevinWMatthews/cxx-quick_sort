@@ -44,8 +44,6 @@ public:
                 break;
             }
         } while(0);
-        // The ranges *must* not overlap!
-        // REALLY not sure that this is always the case...
         std::iter_swap(pkey, jkey);
     };
 private:
