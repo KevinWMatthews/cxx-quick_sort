@@ -1,3 +1,8 @@
+Implement swap between i and j.
+Implement recursion
+    Does partitioning work with an odd number of elements?
+    At what step is recursion required?
+
 Figure out how to make a header-only library.
     If quick sort uses a template, it may well be just this.
 
