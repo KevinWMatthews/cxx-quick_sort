@@ -153,3 +153,45 @@ TEST_F(QuickSortThreeElementsTest, WorstCaseGetsSorted)
     quick_sort.sort();
     ASSERT_EQ(expected, actual);
 }
+
+class QuickSortFourElementTest : public ::testing::Test
+{
+protected:
+    using data_type = array<int, 4>;
+};
+
+TEST_F(QuickSortFourElementTest, WorstCaseGetsSorted)
+{
+    data_type expected = {10, 11, 12, 13};
+    data_type actual   = {13, 12, 11, 10};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
+
+TEST_F(QuickSortFourElementTest, PairSort1)
+{
+    data_type expected = {10, 11, 12, 13};
+    data_type actual   = {11, 10, 13, 12};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
+
+TEST_F(QuickSortFourElementTest, PairSort2)
+{
+    data_type expected = {10, 11, 12, 13};
+    data_type actual   = {12, 13, 10, 11};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
+
+TEST_F(QuickSortFourElementTest, PairSort3)
+{
+    data_type expected = {10, 11, 12, 13};
+    data_type actual   = {10, 12, 13, 11};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
