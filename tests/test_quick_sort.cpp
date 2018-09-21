@@ -127,7 +127,7 @@ TEST_F(QuickSortThreeElementsTest, SortsSecondPairOfElements)
     ASSERT_EQ(expected, actual);
 }
 
-TEST_F(QuickSortThreeElementsTest, MiddleElementMovesToBeginning)
+TEST_F(QuickSortThreeElementsTest, DISABLED_MiddleElementMovesToBeginning)
 {
     data_type expected = {10, 11, 11};
     data_type actual   = {11, 10, 11};
@@ -136,7 +136,7 @@ TEST_F(QuickSortThreeElementsTest, MiddleElementMovesToBeginning)
     ASSERT_EQ(expected, actual);
 }
 
-TEST_F(QuickSortThreeElementsTest, MiddleElementMovesToEnd)
+TEST_F(QuickSortThreeElementsTest, DISABLED_MiddleElementMovesToEnd)
 {
     data_type expected = {10, 10, 12};
     data_type actual   = {10, 12, 10};
@@ -145,7 +145,7 @@ TEST_F(QuickSortThreeElementsTest, MiddleElementMovesToEnd)
     ASSERT_EQ(expected, actual);
 }
 
-TEST_F(QuickSortThreeElementsTest, WorstCaseGetsSorted)
+TEST_F(QuickSortThreeElementsTest, DISABLED_WorstCaseGetsSorted)
 {
     data_type expected = {10, 11, 12};
     data_type actual   = {12, 11, 10};
