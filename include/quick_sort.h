@@ -61,7 +61,7 @@ private:
         // Sort before and after the partition element's new position.
         // The partition element is already in the correct location,
         // so don't include it in the sort.
-        // quick_sort_partition(begin, new_pkey-1);
+        quick_sort_partition(begin, new_pkey-1);
         quick_sort_partition(new_pkey+1, end);
     };
     T& data_;
