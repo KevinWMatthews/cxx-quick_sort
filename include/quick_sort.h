@@ -15,11 +15,20 @@ public:
         if (data_.size() == 1)
             return;
 
-        // What happens if size is 1? Aren't we off the array?
-        auto pkey = data_.begin();
-        auto ikey = pkey;
-        auto jkey = data_.end();        // Starting out off the array!
+        auto begin = data_.begin();
         auto end = data_.end() - 1;     // Stop while pointing to valid data
+        auto partition = quick_sort_partition(begin, end);
+    };
+private:
+    using iter_type = typename T::iterator;
+
+    // Partition and sort the given range, following the quick sort algorithm
+    // Returns a pointer to the new location of the partition element.
+    iter_type quick_sort_partition(iter_type begin, iter_type end) {
+        //TODO need size check here as soon as we recurse...
+        auto pkey = begin;
+        auto ikey = begin;
+        auto jkey = end + 1;        // Starting out off the array!
 
         do
         {
@@ -45,8 +54,8 @@ public:
             }
         } while(0);
         std::iter_swap(pkey, jkey);
+        return jkey;        // Return the new partition
     };
-private:
     T& data_;
 };
 
