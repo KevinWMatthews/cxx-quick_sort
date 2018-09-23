@@ -34,22 +34,8 @@ private:
 
         do
         {
-            do
-            {
-                ++ikey;
-                if (ikey == end)
-                {
-                    break;
-                }
-            } while (*ikey < *pkey);
-            do
-            {
-                --jkey;
-                if (jkey == pkey)
-                {
-                    break;
-                }
-            } while (*jkey > *pkey);
+            left_partition(ikey, end, pkey);
+            right_partition(jkey, begin, pkey);
             if (jkey <= ikey)
             {
                 break;
@@ -65,6 +51,25 @@ private:
         quick_sort(begin, new_pkey-1);
         quick_sort(new_pkey+1, end);
     };
+    void left_partition(iter_type& left, const iter_type& end, const iter_type& partition) {
+        do
+        {
+            ++left;
+            if (left == end)
+            {
+                break;
+            }
+        } while (*left < *partition);
+    };
+    void right_partition(iter_type& right, const iter_type& begin, const iter_type& partition) {
+        do
+        {
+            --right;
+            if (right == begin)
+            {
+                break;
+            }
+        } while (*right > *partition); };
     T& data_;
 };
 
