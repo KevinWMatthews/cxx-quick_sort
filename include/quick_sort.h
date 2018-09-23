@@ -36,7 +36,7 @@ private:
         {
             left_partition(ikey, end, pkey);
             right_partition(jkey, begin, pkey);
-            if (jkey <= ikey)
+            if (have_iterators_crossed(ikey, jkey))
             {
                 break;
             }
@@ -69,7 +69,11 @@ private:
             {
                 break;
             }
-        } while (*right > *partition); };
+        } while (*right > *partition);
+    };
+    bool have_iterators_crossed(iter_type left, iter_type right) {
+        return right <= left;
+    };
     T& data_;
 };
 
