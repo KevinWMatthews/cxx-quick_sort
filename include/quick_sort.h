@@ -34,8 +34,8 @@ private:
 
         do
         {
-            left_partition(left, end, partition);
-            right_partition(right, begin, partition);
+            left_partition(left, partition, end);
+            right_partition(right, partition, begin);
             if (have_iterators_crossed(left, right))
             {
                 break;
@@ -51,7 +51,9 @@ private:
         quick_sort(begin, new_partition-1);
         quick_sort(new_partition+1, end);
     };
-    void left_partition(iter_type& left, const iter_type& end, const iter_type& partition) {
+    // Increment left until its value exceeds that of partition.
+    // Stop if end is reached.
+    void left_partition(iter_type& left, const iter_type& partition, const iter_type& end) {
         do
         {
             ++left;
@@ -61,7 +63,9 @@ private:
             }
         } while (*left < *partition);
     };
-    void right_partition(iter_type& right, const iter_type& begin, const iter_type& partition) {
+    // Decrement right until its value exceeds that of the partition.
+    // Stop if begin is reached.
+    void right_partition(iter_type& right, const iter_type& partition, const iter_type& begin) {
         do
         {
             --right;
