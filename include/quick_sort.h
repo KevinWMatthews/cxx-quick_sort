@@ -28,28 +28,28 @@ private:
         if (std::distance(begin, end) < 1)
             return;
 
-        auto pkey = begin;
-        auto ikey = begin;
-        auto jkey = end + 1;        // Starting out off the array!
+        auto partition = begin;
+        auto left = begin;
+        auto right = end + 1;        // Starting out off the array!
 
         do
         {
-            left_partition(ikey, end, pkey);
-            right_partition(jkey, begin, pkey);
-            if (have_iterators_crossed(ikey, jkey))
+            left_partition(left, end, partition);
+            right_partition(right, begin, partition);
+            if (have_iterators_crossed(left, right))
             {
                 break;
             }
-            std::iter_swap(ikey, jkey);
+            std::iter_swap(left, right);
         } while(1);
-        std::iter_swap(pkey, jkey);
+        std::iter_swap(partition, right);
 
-        auto new_pkey = jkey;
+        auto new_partition = right;
         // Sort before and after the partition element's new position.
         // The partition element is already in the correct location,
         // so don't include it in the sort.
-        quick_sort(begin, new_pkey-1);
-        quick_sort(new_pkey+1, end);
+        quick_sort(begin, new_partition-1);
+        quick_sort(new_partition+1, end);
     };
     void left_partition(iter_type& left, const iter_type& end, const iter_type& partition) {
         do
