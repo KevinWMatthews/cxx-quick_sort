@@ -154,6 +154,10 @@ TEST_F(QuickSortThreeElementsTest, WorstCaseGetsSorted)
     ASSERT_EQ(expected, actual);
 }
 
+
+// All of these tests passed without modification.
+// I feel like they should be tested elsewhere?
+// Many more combinations could be tested.
 class QuickSortFourElementTest : public ::testing::Test
 {
 protected:
@@ -169,7 +173,34 @@ TEST_F(QuickSortFourElementTest, WorstCaseGetsSorted)
     ASSERT_EQ(expected, actual);
 }
 
-TEST_F(QuickSortFourElementTest, PairSort1)
+TEST_F(QuickSortFourElementTest, PairsOfIdenticalElementsRemainSorted)
+{
+    data_type expected = {10, 10, 12, 12};
+    data_type actual   = {10, 10, 12, 12};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
+
+TEST_F(QuickSortFourElementTest, PairsOfIdenticalElementsGetSorted1)
+{
+    data_type expected = {10, 10, 12, 12};
+    data_type actual   = {12, 12, 10, 10};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
+
+TEST_F(QuickSortFourElementTest, PairsOfIdenticalElementsGetSorted2)
+{
+    data_type expected = {10, 10, 12, 12};
+    data_type actual   = {10, 12, 12, 10};
+    QuickSort<data_type> quick_sort = {actual};
+    quick_sort.sort();
+    ASSERT_EQ(expected, actual);
+}
+
+TEST_F(QuickSortFourElementTest, SortUniqueElements1)
 {
     data_type expected = {10, 11, 12, 13};
     data_type actual   = {11, 10, 13, 12};
@@ -178,7 +209,7 @@ TEST_F(QuickSortFourElementTest, PairSort1)
     ASSERT_EQ(expected, actual);
 }
 
-TEST_F(QuickSortFourElementTest, PairSort2)
+TEST_F(QuickSortFourElementTest, SortUniqueElements2)
 {
     data_type expected = {10, 11, 12, 13};
     data_type actual   = {12, 13, 10, 11};
@@ -187,7 +218,7 @@ TEST_F(QuickSortFourElementTest, PairSort2)
     ASSERT_EQ(expected, actual);
 }
 
-TEST_F(QuickSortFourElementTest, PairSort3)
+TEST_F(QuickSortFourElementTest, SortUniqueElements3)
 {
     data_type expected = {10, 11, 12, 13};
     data_type actual   = {10, 12, 13, 11};
