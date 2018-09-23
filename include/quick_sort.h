@@ -32,10 +32,12 @@ private:
         auto left = begin;
         auto right = end + 1;        // Starting out off the array!
 
+        // Walk up from the left and down from the right,
+        // swapping elements if they are out of order.
         do
         {
-            left_partition(left, partition, end);
-            right_partition(right, partition, begin);
+            walk_left_partition(left, partition, end);
+            walk_right_partition(right, partition, begin);
             if (have_iterators_crossed(left, right))
             {
                 break;
@@ -53,7 +55,7 @@ private:
     };
     // Increment left until its value exceeds that of partition.
     // Stop if end is reached.
-    void left_partition(iter_type& left, const iter_type& partition, const iter_type& end) {
+    void walk_left_partition(iter_type& left, const iter_type& partition, const iter_type& end) {
         do
         {
             ++left;
@@ -65,7 +67,7 @@ private:
     };
     // Decrement right until its value exceeds that of the partition.
     // Stop if begin is reached.
-    void right_partition(iter_type& right, const iter_type& partition, const iter_type& begin) {
+    void walk_right_partition(iter_type& right, const iter_type& partition, const iter_type& begin) {
         do
         {
             --right;
